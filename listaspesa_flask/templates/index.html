@@ -1,10 +1,20 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <h1>Per ora funziona tutto!</h1>
-    </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista della Spesa</title>
+</head>
+<body>
+    <h1>La tua Lista della Spesa</h1>
+    {% if listaspesa %}
+        <ul>
+            {% for elemento in listaspesa %}
+                <li>{{ elemento }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>La lista è vuota.</p>
+    {% endif %}
+</body>
 </html>

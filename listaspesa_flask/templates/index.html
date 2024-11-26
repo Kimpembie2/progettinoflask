@@ -7,14 +7,27 @@
 </head>
 <body>
     <h1>La tua Lista della Spesa</h1>
-    {% if listaspesa %}
-        <ul>
-            {% for elemento in listaspesa %}
-                <li>{{ elemento }}</li>
-            {% endfor %}
-        </ul>
+    {% if lista %}
+    <ul>
+    {% for elemento in lista %}
+    <li>
+    {{ elemento }}
+    <form action="/rimuovi/{{ loop.index0 }}" method="post"
+    
+    style="display:inline;">
+    
+    <button type="submit">Rimuovi</button>
+    </form>
+    </li>
+    {% endfor %}
+    </ul>
     {% else %}
-        <p>La lista è vuota.</p>
+    <p>La lista è vuota.</p>
     {% endif %}
-</body>
+    <form action="/aggiungi" method="post">
+        <input type="text" name="elemento" placeholder="Aggiungi un elemento"
+        required>
+        <button type="submit">Aggiungi</button>
+        </form>
+    </body>
 </html>
